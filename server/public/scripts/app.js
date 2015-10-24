@@ -28,6 +28,7 @@ function getArray(dataArray) {
 //appends div main to DOM and creates el variable to point to where we want,
 //then calls to create other elements for carousel
 function createCarousel(data){
+   // $("#container").append("<div class='imageSpot'></div>");
     $("#container").append("<div class='myInfo'></div>");
     $("#container").append("<div class='main'></div>");
     var $el = $("#container").children().last();
@@ -45,14 +46,13 @@ function createLayoutElements(array, $el){
 }
 
 function nextSlide(){
-    //$(".myInfo").fadeOut(2000);
     indexTracker++;
-    console.log(indexTracker);
     if(indexTracker >= zetaArray.length){
         indexTracker = 0;
     }
-
-    updateScreen();
+    $(".myInfo").fadeOut(2000, function(){
+        updateScreen();
+    });
 }
 
 //go to the previous slide by decrementing tracker and then updating
@@ -61,8 +61,9 @@ function prevSlide(){
     if(indexTracker < 0){
         indexTracker = zetaArray.length - 1;
     }
-
-    updateScreen();
+    $(".myInfo").fadeOut(2000, function(){
+        updateScreen();
+    });
 }
 
 function updateScreen(){
@@ -71,8 +72,9 @@ function updateScreen(){
         $("#index" + i).removeClass("index-point-active");
         if(i == indexTracker){
             $("#index" + i).addClass("index-point-active");
-            $(".myInfo").append("<div class='imageSpot'><img src='" + zetaArray[i].imageUrl + "'</div>");
-            $(".myInfo").html("<div><h2>Name: " + zetaArray[i].name + "</h2><p>Github Link: <a href='" + zetaArray[i].github + "'>" + zetaArray[i].github + "</a></p><p class='italicClass'>Shoutout: " + zetaArray[i].shoutout + "</p>");
+            console.log(zetaArray[i].imageUrl);
+            //$(".imageSpot").fadeIn(2000).html("<p><img src='" + zetaArray[i].imageUrl + "'</p>");
+            $(".myInfo").fadeIn(2000).html("<div><p><img src='" + zetaArray[i].imageUrl + "'</p><h2>Name: " + zetaArray[i].name + "</h2><p>Github Link: <a href='" + zetaArray[i].github + "'>" + zetaArray[i].github + "</a></p><p class='italicClass'>Shoutout: " + zetaArray[i].shoutout + "</p>");
         }
     }
 }
