@@ -1,0 +1,22 @@
+main {
+    display: inline-block;
+}
+
+.myInfo {
+    height: 150px;
+    width: auto;
+}
+
+span {
+    padding: 0 5px;
+}
+
+button {
+    width: 85px;
+    text-align: center;
+}
+
+.index-point-active {
+    color: red;
+}
+
