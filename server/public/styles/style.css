@@ -3,8 +3,10 @@ main {
 }
 
 .myInfo {
-    height: 150px;
-    width: auto;
+    height: 170px;
+    width: 675px;
+    padding: 20px auto 10px auto;
+    text-align: center;
 }
 
 span {
@@ -18,5 +20,9 @@ button {
 
 .index-point-active {
     color: red;
+}
+
+.italicClass {
+    font-style: italic;
 }
 
