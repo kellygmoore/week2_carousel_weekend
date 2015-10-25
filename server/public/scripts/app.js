@@ -12,6 +12,7 @@ $(document).ready(function() {
             getArray(data.zeta);
             createCarousel(zetaArray);
             updateScreen();
+            var timer = setInterval(runSlideShow, 10000);
             console.log("This is on AJAX: " + data.zeta.length);
             $(".next").on('click', nextSlide);
             $(".prev").on('click', prevSlide);
@@ -24,6 +25,30 @@ function getArray(dataArray) {
     zetaArray = dataArray;
     //console.log(zetaArray);
 }
+
+function runSlideShow() {
+    nextSlide();
+}
+
+//if(bool){
+//    timer = setInterval(function(){
+//        setTimeout(function(){
+//        },1000);
+//    },1000);
+//}else{
+//    clearInterval(timer);
+//}
+//}
+//
+//$("#set").click(function(e){
+//    e.preventDefault();
+//    setResetInterval(true);
+//});
+
+
+
+
+
 
 //appends div main to DOM and creates el variable to point to where we want,
 //then calls to create other elements for carousel
@@ -50,7 +75,7 @@ function nextSlide(){
     if(indexTracker >= zetaArray.length){
         indexTracker = 0;
     }
-    $(".myInfo").fadeOut(2000, function(){
+    $(".myInfo").fadeOut(1000, function(){
         updateScreen();
     });
 }
@@ -61,7 +86,7 @@ function prevSlide(){
     if(indexTracker < 0){
         indexTracker = zetaArray.length - 1;
     }
-    $(".myInfo").fadeOut(2000, function(){
+    $(".myInfo").fadeOut(1000, function(){
         updateScreen();
     });
 }
